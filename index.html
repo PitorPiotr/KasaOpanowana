@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Asset&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" rel="stylesheet"
+        type="text/css">
+    <title>Kasa opanowana</title>
+
+</head>
+
+<body>
+
+    <!-- Upper part of page. Title, budget, buttons,Adding form and calculator. -->
+    <div class="top">
+
+        <!-- Budget, Incomes, Expenses - sums -->
+        <div class="budget">
+            <h1 class="numbers">Kasa Opanowana</h1>
+            <h2 class="budget-total numbers"> </h2>
+            <h4 class="budget-incomes numbers"></h4>
+            <h4 class="budget-expenses numbers"></h4>
+            <button class="ui inverted teal button large localStorageDelete">Wyczyść wszystko</button>
+            <br>
+            <!-- Button to print things in PDF (for example full month comparison) -->
+            <button class="ui inverted olive button huge saveButton" onclick = "window.print()">Zapisz PDF</button>
+        </div>
+
+        <!-- Add-form -->
+        <div class="add-container">
+            <select class="ui simple active dropdown add-type">
+                <option value="inc">Zarobek</option>
+                <option value="exp" selected>Wydatek</option>
+            </select>
+            <div class="ui five wide required field calendar">
+                <input type="date" name="dateExpire" placeholder="dd/mm/yyyy" class="date">
+            </div>
+            <div class="ui input">
+                <input type="text" class="description" placeholder="Opis">
+            </div>
+            <div class="ui right labeled input">
+                <label for="amount" class="ui label">pln</label>
+                <input type="number" class="ui right labeled input amount" placeholder="Ile">
+            </div>
+            <button class="add-position ui purple button huge">Dodaj</button>
+        </div>
+
+        <!-- Calculator -->
+        <div class="calcDiv">
+            <form name="calc" class="calcForm">
+                <input class="calcResult" type="text" name="digit" />
+                <br>
+                <input type="button" value="1" onclick="calc.digit.value += '1'" />
+                <input type="button" value="2" onclick="calc.digit.value += '2'" />
+                <input type="button" value="3" onclick="calc.digit.value += '3'" />
+                <input type="button" value="+" onclick="calc.digit.value += '+'" />
+                <br />
+                <input type="button" value="4" onclick="calc.digit.value += '4'" />
+                <input type="button" value="5" onclick="calc.digit.value += '5'" />
+                <input type="button" value="6" onclick="calc.digit.value += '6'" />
+                <input type="button" value="-" onclick="calc.digit.value += '-'" />
+                </br>
+                <input type="button" value="7" onclick="calc.digit.value += '7'" />
+                <input type="button" value="8" onclick="calc.digit.value += '8'" />
+                <input type="button" value="9" onclick="calc.digit.value += '9'" />
+                <input type="button" value="X" onclick="calc.digit.value += '*'" />
+                </br>
+                <input type="button" value="C" onclick="calc.digit.value = ''" />
+                <input type="button" value="0" onclick="calc.digit.value += '0'" />
+                <!-- Function to avoid eval. Replace to avoid "," and letters (to prevent from hacking) -->
+                <input type="button" value="="
+                    onclick="calc.digit.value = new Function('return('+calc.digit.value.replace(/,/g,'.').replace(/([a-zA-Z])/g, '')+')')()" />
+                <input type="button" value="/" onclick="calc.digit.value += '/'" />
+                </br>
+                <input type="button" value="." onclick="calc.digit.value += '.'" />
+                <!-- slice to create "onclick backspace" -->
+                <input type="button" value="<-"
+                    onclick="calc.digit.value = calc.digit.value.slice(0, calc.digit.value.length-1)" />
+            </form>
+           
+        </div>
+
+    </div>
+
+    <!-- Place for Incomes and Expenses items(cards) -->
+    <div class="positions">
+        <div class="incomes">
+            <h2 class="incomes-style numbers">Zarobki</h2>
+            <div class="incomes-list">
+            </div>
+        </div>
+
+        <div class="expenses">
+            <h2 class="expenses-style numbers">Wydatki</h2>
+            <div class="expenses-list">
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="app.js"></script>
+</body>
+
+</html>
