@@ -1,0 +1,232 @@
+/* Background */
+body {
+   background: url('pawel-czerwinski-PtHP1wFSSYI-unsplash.jpg') no-repeat fixed !important;
+}
+/* Font */
+*:not(.deleteBtn){
+   font-family: 'Lobster', cursive !important;
+   font-weight: bolder;
+}
+/* Dollar font  */
+.numbers {
+   font-family: 'Asset', cursive !important;
+   font-weight: bolder;
+   transform: scale(.9, 1);
+   font-weight: 400;
+}
+ /* !important - to hold proper font even when html template in js file is changing (%val% etc.). In body 
+ !important is to not inherit white background from "*" (as * is for every object */
+
+/* Title "Kasa Opanowana" */
+h1 {
+   font-size: 35px !important;
+   text-shadow: 7px 7px #3E3E3C
+}
+
+/* "Reszta" */
+.budget-total {
+   font-size: 25px !important;
+   font-weight: 200;
+   text-shadow: 5px 5px #133b91
+
+}
+
+/* Icomes and expenses things - the same color. Different classes, because budget-incomes and budget-expenses are used in app.js */
+
+.budget-incomes, .incomes-style {
+   font-size: 20px !important; 
+   text-shadow: 5px 5px #0e6926;
+}
+
+.budget-expenses, .expenses-style {
+   font-size: 20px !important; 
+   text-shadow: 5px 5px rgba(102, 9, 9, 0.925);
+}
+
+/* Description - text overflow and max width to wrap description */
+
+p {
+   font-size: 18px;
+   text-overflow: ellipsis;
+   max-width: 200px;
+   margin: auto;
+}
+
+
+div {
+   text-align: center;
+}
+
+.date {
+   cursor: pointer
+}
+
+/* "x" in button looks better with regular font */
+
+.deleteBtn ui inverted purple button mini, .calcForm button {
+   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif !important;
+   
+   
+}
+
+/* Top part of page (without incomes and expenses list) */
+
+.top {
+   display:flex;
+   justify-content: space-evenly;
+   color: mintcream;
+   text-shadow: rgb(173, 177, 230);
+   flex-wrap: wrap;
+   flex-direction:row;
+   border-bottom: 10px solid #3E3E3C;
+   padding: 20px;
+   text-align: center;
+} 
+
+/* placeholders in the center */
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+
+/* Budget (all main sums) to be in order */
+
+.budget {
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column; 
+}
+
+/* The same with adding part */
+
+.add-container {
+   display:flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+
+}
+
+
+/* Incomes and Expenses - cards area. Also particular lists */
+
+.positions {
+   display:flex;
+   align-items: flex-start;
+   justify-content: space-around;
+   flex-wrap: wrap;
+   color: mintcream;
+   flex-direction: row;
+   margin: 5px;
+}
+
+.incomes-list {
+   width:15vw;
+   display:flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   align-items:flex-start;
+   justify-content: center;
+   margin:auto;
+} 
+
+.expenses-list {
+   width:80vw; 
+   display:flex;
+   flex-direction: row;
+   flex-wrap: wrap; 
+   align-items:flex-start;
+   justify-content: center;
+   margin: auto;  
+}
+
+/* IncomeCard */
+
+.itemContInc {
+   display: flex;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+   flex-wrap: wrap;
+   flex-direction: column;
+   padding: 3px;
+   background-color: mintcream;
+   border-radius: 20px 20px 20px 20px;
+   -moz-border-radius: 20px 20px 20px 20px;
+   -webkit-border-radius: 20px 20px 20px 20px;
+   border: 5px solid #0e6926;
+   color:  #0e6926;
+   margin: 10px;
+}
+
+/* Expenses Card - pretty much the same but with different colors  */
+
+.itemContExp {
+   display:flex;
+   justify-content: center;
+   text-align: center;
+   align-items: center;
+   flex-wrap: wrap;
+   flex-direction: column;
+   padding: 3px;
+   background-color: mintcream;
+   border-radius: 20px 20px 20px 20px;
+   -moz-border-radius: 20px 20px 20px 20px;
+   -webkit-border-radius: 20px 20px 20px 20px;
+   border: 5px solid rgba(102, 9, 9, 0.925);
+   color:  rgba(102, 9, 9, 0.925);
+   margin: 10px
+}
+
+/* Semantic UI elements, mainly buttons - nice border */
+
+.ui {
+   margin: 25px;
+   border: solid #1b1c1d 3px;
+   border-radius: 7px 7px 7px 7px;  
+}
+
+/* Calculator part  */
+.calcDiv {
+   align-items:center;
+   justify-content: center; 
+   display: flex;
+   flex-direction: row
+}
+
+/* Calculator buttons */
+
+.calcDiv input:not(.calcResult) {
+   width: 40px;
+   height: 40px;
+   font-family: 'Courier New', Courier, monospace !important;
+   border: solid #1b1c1d 3px; 
+   margin: 3px;
+   background-color: mintcream;
+   cursor: pointer
+}
+
+/*Calculator main input */
+
+.calcResult {
+   width: 190px;
+   height: 40px;
+   margin: 20px;
+   text-align: center;
+   background-color: mintcream;
+}
+
+
+
